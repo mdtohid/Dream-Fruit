@@ -1,9 +1,9 @@
-import React from 'react';
 import {Navbar, Nav, Container} from 'react-bootstrap';
 
 const Header = () => {
+  
     return (
-        <div>
+        
         <Navbar collapseOnSelect sticky='top' expand="lg" bg="dark" variant="dark">
         <Container >
         <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
@@ -19,7 +19,7 @@ const Header = () => {
         </Navbar.Collapse>
         </Container>
       </Navbar>
-        </div>
+        
     );
 };
 
