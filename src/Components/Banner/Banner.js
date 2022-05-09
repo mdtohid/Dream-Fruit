@@ -1,14 +1,15 @@
 import React from 'react';
+import './Banner.css';
 import { Carousel } from 'react-bootstrap';
 
 const Banner = () => {
     return (
         <div>
-            <Carousel fade>
+            <Carousel fade className=''>
                 <Carousel.Item>
                     <img
-                        className="d-block w-100"
-                        src="holder.js/800x400?text=First slide&bg=373940"
+                        className="d-block img-fluid banner-carousel"
+                        src="http://www.pngall.com/wp-content/uploads/2016/04/Banana-PNG.png"
                         alt="First slide"
                     />
                     <Carousel.Caption>
@@ -18,8 +19,8 @@ const Banner = () => {
                 </Carousel.Item>
                 <Carousel.Item>
                     <img
-                        className="d-block w-100"
-                        src="holder.js/800x400?text=Second slide&bg=282c34"
+                        className="d-block banner-carousel img-fluid"
+                        src="https://images.freshop.com/00852201002228/ad2f58915e3267700906f1025ef8917f_medium.png"
                         alt="Second slide"
                     />
 
@@ -28,10 +29,10 @@ const Banner = () => {
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item>
+                <Carousel.Item> 
                     <img
-                        className="d-block w-100"
-                        src="holder.js/800x400?text=Third slide&bg=20232a"
+                        className="d-block banner-carousel img-fluid"
+                        src="http://icons.iconarchive.com/icons/artbees/paradise-fruits/256/Peach-icon.png"
                         alt="Third slide"
                     />
 
