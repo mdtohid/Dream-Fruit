@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Button, CardImg, Image } from 'react-bootstrap';
 import { useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 const FruitItem = () => {
     const [items, setItems] = useState([]);
@@ -32,7 +32,10 @@ const FruitItem = () => {
                     </div>
                      )}
                     </div> 
-                        </div>  
+                    <div className='d-flex justify-content-center'>
+                    <Button className='btn btn-warning mx-5 px-5'><Link to='fruitItem/ManageItem' className='text-white text-decoration-none text-center'>Manage item</Link></Button>
+                    </div>
+                    </div>  
     );
 };
 
