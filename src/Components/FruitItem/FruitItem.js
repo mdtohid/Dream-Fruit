@@ -7,16 +7,16 @@ const FruitItem = () => {
     const [items, setItems] = useState([]);
     const navigate = useNavigate();
     useEffect(()=>{
-        fetch('fruits.json')
+        fetch('http://localhost:5000/fruitItem')
         .then(res => res.json())
         .then(data=>setItems(data))
     },[]);
-    const itemDetail=(id)=>{
-        navigate(`fruit-item/${id}`)
+    const itemDetail=(_id)=>{
+        navigate(`fruitItem/${_id}`) 
 
     }
     return (
-                        <div id='fruit-item'>
+                        <div id='fruitItem'>
                             <h1 className='text-primary text-center mt-5'>Our Items</h1>
                             <div className="row row-cols-1 row-cols-md-3 g-4 p-5">
                         {items.map(item=>
@@ -27,7 +27,7 @@ const FruitItem = () => {
                             <h5 className="card-title">{item.name}</h5>
                             
                         </div>
-                        <Button  onClick={()=>itemDetail(item.id)}>Details</Button>
+                        <Button  onClick={()=>itemDetail(item._id)}>Details</Button>
                         </div>
                     </div>
                      )}
