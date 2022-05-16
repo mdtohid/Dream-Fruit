@@ -27,6 +27,7 @@ const ManageItem = () => {
 
     const onSubmit = data => {
         const url = 'http://localhost:5000/fruitItem';
+        
         fetch(url, {
             method: 'POST',
             headers: {
