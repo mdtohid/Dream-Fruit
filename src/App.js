@@ -1,16 +1,21 @@
+import logo from './logo.svg';
 import './App.css';
-import Banner from './Component/Banner/Banner';
-import Footer from './Component/Footer/Footer';
 import Header from './Component/Header/Header';
+import Footer from './Component/Footer/Footer';
+import { Route, Routes } from 'react-router';
+import Home from './Component/Home/Home';
+import Banner from './Component/Banner/Banner';
 import Inventory from './Component/Inventory/Inventory';
-
 
 function App() {
   return (
-    <div>
+    <div className="">
       <Header></Header>
-      <Banner></Banner>
-      <Inventory></Inventory>
+      <Routes>
+        <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/banner' element={<Banner></Banner>}></Route>
+        <Route path='/inventory' element={<Inventory></Inventory>}></Route>
+      </Routes>
       <Footer></Footer>
     </div>
   );
