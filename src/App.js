@@ -6,6 +6,8 @@ import { Route, Routes } from 'react-router';
 import Home from './Component/Home/Home';
 import Banner from './Component/Banner/Banner';
 import Inventory from './Component/Inventory/Inventory';
+import Login from './Component/Authentication/Login/Login';
+import ItemInfo from './Component/ItemInfo/ItemInfo';
 
 function App() {
   return (
@@ -15,8 +17,10 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/banner' element={<Banner></Banner>}></Route>
         <Route path='/inventory' element={<Inventory></Inventory>}></Route>
+        <Route path='/inventory/:id' element={<ItemInfo></ItemInfo>}></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
       </Routes>
-      <Footer></Footer>
+      <Footer></Footer> 
     </div>
   );
 }

@@ -1,0 +1,18 @@
+[
+    {
+        "id": "1",
+        "name": "Banana",
+        "price": "5",
+        "amount": "20",
+        "description": "A banana is an edible fruit – botanically a berry – produced by several kinds of large herbaceous flowering plants in the genus Musa. In some countries, bananas used for cooking may be called plantains, distinguishing them from dessert banana",
+        "photoUrl":"http://www.pngall.com/wp-content/uploads/2016/04/Banana-PNG.png"
+    },
+    {
+        "id": "2",
+        "name": "Apple",
+        "price": "5",
+        "amount": "10",
+        "description": "An apple is a sweet, edible fruit produced by an apple tree. Apple trees are cultivated worldwide and are the most widely grown species in the genus Malus.",
+        "photoUrl":"https://images.freshop.com/00852201002228/ad2f58915e3267700906f1025ef8917f_medium.png"
+    }
+]
