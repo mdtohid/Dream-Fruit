@@ -52,5 +52,50 @@
         "quantity": 30,
         "description": "A cherry is the fruit of many plants of the genus Prunus, and is a fleshy drupe. Commercial cherries are obtained from cultivars of several species, such as the sweet Prunus avium and the sour Prunus cerasus.",
         "photoUrl":"https://static.wixstatic.com/media/2cd43b_7415c9b79d664508b6f62a6953403b75~mv2.png/v1/fill/w_256,h_256,fp_0.50_0.50/2cd43b_7415c9b79d664508b6f62a6953403b75~mv2.png"
+        },
+        {
+            "id": 7,
+            "name": "Papaya",
+            "supplierName":"Tohid",
+            "price": 5,
+            "quantity": 20,
+            "description": "A Papaya is an edible fruit – botanically a berry – produced by several kinds of large herbaceous flowering plants in the genus Musa. In some countries, bananas used for cooking may be called plantains, distinguishing them from dessert banana",
+            "photoUrl":"https://i.ibb.co/9cftWhj/charlesdeluvio-y-PI38imb-QSI-unsplash.jpg"
+        },
+        {
+            "id": 8,
+            "name": "Pineapple",
+            "supplierName":"Tohid",
+            "price": 5,
+            "quantity": 10,
+            "description": "An Pineapple is a sweet, edible fruit produced by an apple tree. Apple trees are cultivated worldwide and are the most widely grown species in the genus Malus.",
+            "photoUrl":"https://i.ibb.co/HDMNP7P/nguyen-ngoc-tung-Zk-G4-Jdo-MANM-unsplash.jpg"
+        },
+        {
+            "id": 9,
+            "name": "Orange",
+            "supplierName":"Tohid",
+            "price": 5,
+            "quantity": 10,
+            "description": "The orange is a deciduous tree native to the region of Northwest China between the Tarim Basin and the north slopes of the Kunlun Mountains, where it was first domesticated and cultivated. It bears an edible juicy fruit called a peach or a nectarine.",
+            "photoUrl":"https://i.ibb.co/r0yMWGd/xiaolong-wong-nibg-G33-H0-F8-unsplash.jpg"
+        },
+        {
+            "id": 10,
+            "name": "Blackberry",
+            "supplierName":"Tohid",
+            "price": 5,
+            "quantity": 5,
+            "description": "The fruit is widely appreciated for its characteristic aroma, bright black color, juicy texture, and sweetness.",
+            "photoUrl":"https://i.ibb.co/nfRQ3Jn/nadeykina-evgeniya-epe-Lq-DQh2-PE-unsplash.jpg"
+        },
+        {
+            "id": 11,
+            "name": "Mango",
+            "supplierName":"Tohid",
+            "price": 5,
+            "quantity": 6,
+            "description": "The Mango is the edible, often red, berry of the plant Solanum lycopersicum, commonly known as a tomato plant. The species originated in western South America and Central America.",
+            "photoUrl":"https://i.ibb.co/HGPCCfH/heather-gill-ICVexv-Zju-C0-unsplash.jpg"
         }
 ]

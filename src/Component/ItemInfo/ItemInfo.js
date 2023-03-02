@@ -10,30 +10,71 @@ const ItemInfo = () => {
     const [stockQuantity, setStockQuantity] = useState(0);
 
     useEffect(() => {
-        fetch('/Fruits.json')
+        fetch(`http://localhost:5000/inventory/${id}`)
             .then(res => res.json())
             .then(data => {
-                const item = data.find(product => product.id == id);
-                setProduct(item);
-                setQuantity(item.quantity);
+                setProduct(data);
+                setQuantity(data.quantity);
             });
     }, [id]);
 
-    const handleDelivery = () => {
-        const newQuantity = quantity - 1;
+    const handleDelivery = async () => {
+        let newQuantity;
+        if (quantity > 0) {
+            newQuantity = (quantity - 1);
+        }
+        else {
+            newQuantity = 0;
+        }
+        console.log(newQuantity);
         setQuantity(parseInt(newQuantity));
-        console.log(stockQuantity);
+        // console.log(newQuantity);
+        // console.log(quantity);
+        await fetch(`http://localhost:5000/inventory/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ newQuantity }),
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                console.log(result);
+            })
+
     }
 
-    const handleNumber=(event)=>{
+    const handleNumber = (event) => {
         const restockQuantity = event.target.value;
         setStockQuantity(parseInt(restockQuantity) + parseInt(quantity));
         console.log(stockQuantity);
     }
 
-    const handleRestock=(event)=>{
+    const handleRestock = async(event) => {
         event.preventDefault();
-        setQuantity(parseInt(stockQuantity));
+        setQuantity(stockQuantity);
+        console.log(stockQuantity);
+
+        let newQuantity;
+        if (stockQuantity > 0) {
+            newQuantity = stockQuantity;
+        }
+        else {
+            newQuantity = 0;
+        }
+
+        await fetch(`http://localhost:5000/inventory/${id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ newQuantity }),
+        })
+            .then((response) => response.json())
+            .then((result) => {
+                console.log(result);
+            })
+
         event.target.reset()
     }
 
@@ -51,12 +92,12 @@ const ItemInfo = () => {
                     <h6>Supplier: {product.supplierName}</h6>
                     <p className="card-text">{product.description}</p>
                 </div>
-                
+
                 <button onClick={handleDelivery} type="button" className="btn btn-outline-info w-50 ms-2 mb-3">Delivered</button>
 
                 <form className='d-flex p-2' onSubmit={handleRestock}>
                     <input type="number" onBlur={handleNumber} name="" id="" className='d-inline w-25 p-1 rounded' />
-                    <input type="submit"  value="Restock the item" className='btn btn-outline-info' />
+                    <input type="submit" value="Restock the item" className='btn btn-outline-info' />
                 </form>
             </div>
         </div>

@@ -8,7 +8,8 @@ const Login = () => {
     console.log(watch("example"));
     return (
         <div className='w-100'>
-            <form className='w-50 mx-auto mt-5' onSubmit={handleSubmit(onSubmit)}>
+            <h1 className='text-center text-info mt-5'>Please Login</h1>
+            <form className='w-50 mx-auto mt-2' onSubmit={handleSubmit(onSubmit)}>
                 <label>Email address</label><br />
                 <input type='email' className='w-100 p-2 form-control' {...register("email", { required: true })} required /> <br />
 
