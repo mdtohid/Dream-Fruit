@@ -12,6 +12,10 @@ import ManageInventory from './Component/ManageInventory/ManageInventory';
 import AddItem from './Component/AddItem/AddItem';
 import Blogs from './Component/Blogs/Blogs';
 import Error404 from './Component/Error404/Error404';
+import Registration from './Component/Authentication/Registration/Registration';
+import MyItem from './Component/MyItem/MyItem';
+import RequireAuth from './Component/RequireAuth/RequireAuth';
+
 
 function App() {
   return (
@@ -22,10 +26,14 @@ function App() {
         <Route path='/banner' element={<Banner></Banner>}></Route>
         <Route path='/inventory' element={<Inventory></Inventory>}></Route>
         <Route path='/inventory/:id' element={<ItemInfo></ItemInfo>}></Route>
-        <Route path='/inventory:/id' element={<ManageInventory></ManageInventory>}></Route>
+        <Route path='/inventory:/id' element={<RequireAuth>
+          <ManageInventory></ManageInventory>
+        </RequireAuth>}></Route>
+        <Route path='/myItem' element={<MyItem></MyItem>}></Route>
         <Route path='/addItem' element={<AddItem></AddItem>}></Route>
         <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/registration' element={<Registration></Registration>}></Route>
         <Route path='/*' element={<Error404></Error404>}></Route>
       </Routes>
       <Footer></Footer> 

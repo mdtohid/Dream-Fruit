@@ -11,8 +11,18 @@ const AddItem = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        console.log(data);
-        console.log(data.name);
+        fetch("http://localhost:5000/inventory", {
+            method: "POST", // or 'PUT'
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                console.log("Success:", data);
+            })
+
         reset();
     };
 
@@ -47,7 +57,7 @@ const AddItem = () => {
                         <input type='number' className='w-100 p-2 form-control' {...register("quantity", { required: true })} required />
                     </div>
                 </div>
-                
+
                 <div className='d-lg-flex align-items-center mb-3 col-6 mx-auto'>
                     <div className='col-3'>
                         <label>Supplier Name:</label>
