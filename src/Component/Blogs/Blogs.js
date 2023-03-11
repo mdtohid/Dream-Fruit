@@ -51,6 +51,7 @@ const Blogs = () => {
                 </h2>
                 <div id="panelsStayOpen-collapseFour" className="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingFour">
                     <div className="accordion-body">
+                        <p>By using jwt, an unauthorized user can not get access and its ensure user information security.Jwt works firstly depends on user email, web page get a token and these token hidden in local storage or cookie.By getting these token user get access.</p>
                     </div>
                 </div>
             </div>
