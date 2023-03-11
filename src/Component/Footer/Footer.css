@@ -1,0 +1,46 @@
+/*..........footerTop............*/
+.footerTop{
+    background-color: #2B2B39;
+}
+
+.menu{
+    margin: 78px 183px 85px 135px;
+}
+
+.aTagMenu{
+    display: block;
+}
+
+.subscribedFooter{
+    margin: 74px 135px 85px 0px;
+}
+
+.searchFooter{
+    border: 1px solid white;
+}
+
+/*..........footerTop............*/
+.footerBottom{
+    background-color: #20202D;
+    padding: 10px 135px;
+}
+
+
+/*..........Responsive............*/
+@media only screen and (max-width: 600px) {
+    .footerTop{
+        flex-direction: column;
+    }
+
+    .menu{
+        margin: 30px 7px 7px 7px;
+    }
+
+    .subscribedFooter{
+        margin: 50px;
+    }
+
+    .footerBottom{
+        padding: 5px;
+    }
+  }

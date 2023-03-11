@@ -1,0 +1,39 @@
+.offer{
+    margin-bottom: 97px;
+  }
+  
+  .offerItems{
+      margin-inline: 135px!important;
+  }
+  
+  
+  .line {
+    overflow: hidden;
+  }
+  
+  .line:before{
+    background-color: orange;
+    content: "";
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    vertical-align: middle;
+    width: 39px;
+    right: 10px;
+  }
+  
+  .offerArrow{
+    width: 10px;
+    height: 10px;
+  }
+  
+  /* .pofferMg{
+    margin-left: 39px;
+  } */
+  
+  @media only screen and (max-width: 600px) {
+    .offerItems{
+      margin-inline: 60px!important;
+  }
+  }
+  

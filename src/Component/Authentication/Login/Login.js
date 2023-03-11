@@ -5,6 +5,8 @@ import auth from '../../../firebase.init';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import Loading from '../../Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import axios from 'axios';
+import useJwtToken from '../../../hooks/useJwtToken';
 
 const Login = () => {
     const [
@@ -18,7 +20,6 @@ const Login = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
     const location = useLocation();
-    console.log(location);
     let from = location.state?.from?.pathname || "/";
 
 
@@ -28,19 +29,24 @@ const Login = () => {
         await signInWithEmailAndPassword(email, password);
     }
 
+    const userEmail = user?.user?.email;
+    const {token} = useJwtToken(userEmail);
+    // console.log(token);
+
+    
+
     if (loading) {
         <Loading></Loading>
     }
+
+    console.log();
 
     if (user) {
         navigate(from, { replace: true });
     }
 
-    // const errorMsg = () => {
-    //     if (error) {
-    //         return('Wrong password.Please give right password')
-    //     }
-    // }
+
+
 
     return (
         <div className=''>
@@ -53,10 +59,10 @@ const Login = () => {
                 <input className='w-100 mt-1 p-2 form-control' type="password" {...register("password", { required: true })} required /> <br />
 
                 {
-                    error? 
-                    <p className='text-danger'>Wrong password. Please check your password</p>
-                    :
-                    <></>
+                    error ?
+                        <p className='text-danger'>Wrong password. Please check your password</p>
+                        :
+                        <></>
                 }
 
                 <div className='w-100 text-center'><input className='btn btn-info w-50' type="submit" /></div>
@@ -66,7 +72,7 @@ const Login = () => {
                 <SocialLogin></SocialLogin>
             </form>
 
-            
+
 
         </div>
     );

@@ -1,18 +1,70 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router';
+import auth from '../../firebase.init';
+import Loading from '../Loading/Loading';
 
 const MyItem = () => {
+    const [user, loading, error] = useAuthState(auth);
     const [items, setItems] = useState([]);
-    useEffect(() => {
-        axios.get('http://localhost:5000/myItem')
-            .then(function (response) {
-                // handle success
-                console.log(response.data);
-                setItems(response.data);
+    const [signOut, loading2, error2] = useSignOut(auth);
+    const navigate = useNavigate();
 
+    // useEffect(() => {
+    //     axios.get('https://server-11-1eu8n6xit-mdtohid.vercel.app/myItem')
+    //         .then(function (response) {
+    //             // handle success
+    //             setItems(response.data);
+
+    //         })
+    // }, []);
+
+    useEffect(() => {
+        if (loading) {
+            <Loading></Loading>
+        }
+        else {
+            const getItem = async () => {
+                try {
+                    // console.log(user?.email)
+                    const { data } = await axios.get(`https://server-11-1eu8n6xit-mdtohid.vercel.app/myItem?email=${user?.email}`,
+                        {
+                            headers: {
+                                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                            }
+                        }
+                    );
+                    setItems(data);
+                }
+
+                catch (error) {
+                    console.log(error.message);
+                    if (error.response?.status === 401 || error.response?.status === 403) {
+                        signOut(auth);
+                        navigate('/login');
+                    }
+                }
+            }
+            getItem();
+        }
+    }, [user?.email]);
+
+
+    const removeFromMyItem = (id) => {
+        axios.delete(`https://server-11-1eu8n6xit-mdtohid.vercel.app/myItem/${id}`, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(function (response) {
+                console.log(response.data);
+                console.log(response.data.result);
+                console.log(response.data.result1);
+                setItems(response.data.result1);
             })
-    }, [items])
-    console.log(items);
+    }
+
     return (
         <div>
             {
@@ -30,7 +82,7 @@ const MyItem = () => {
                                 <p className="card-text">{item.description}</p>
                             </div>
 
-                            <button type="button" className="btn btn-danger  ms-2 my-3">Remove from My item</button>
+                            <button type="button" className="btn btn-danger  ms-2 my-3" onClick={() => removeFromMyItem(item._id)}>Remove from My item</button>
                         </div>
                     </div>
                 )

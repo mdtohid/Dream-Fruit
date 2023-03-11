@@ -1,0 +1,20 @@
+.achievement{
+    /* margin-top: 75px!important;
+    margin-bottom: 75px!important;
+    margin-left: 135px!important;
+    margin-right: 75px!important; */
+    margin:75px 135px!important;
+}
+
+@media only screen and (max-width: 600px) {
+    .achievement{
+        display: flex;
+        flex-direction: column;
+        margin:60px!important;
+    }
+
+    .marginMd{
+        margin-bottom: 50px;
+    }
+
+  }

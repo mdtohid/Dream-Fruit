@@ -1,5 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddItem = () => {
     const {
@@ -11,7 +13,7 @@ const AddItem = () => {
     } = useForm();
 
     const onSubmit = (data) => {
-        fetch("http://localhost:5000/inventory", {
+        fetch("https://server-11-1eu8n6xit-mdtohid.vercel.app/inventory", {
             method: "POST", // or 'PUT'
             headers: {
                 "Content-Type": "application/json",
@@ -21,6 +23,7 @@ const AddItem = () => {
             .then((response) => response.json())
             .then((data) => {
                 console.log("Success:", data);
+                toast.success('Added successfully');
             })
 
         reset();

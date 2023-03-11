@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from 'react-router';
 const ManageInventory = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/manageInventory')
+        fetch('https://server-11-1eu8n6xit-mdtohid.vercel.app/manageInventory')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [])
@@ -16,19 +16,19 @@ const ManageInventory = () => {
     }
 
     const handleDeleteProduct = async (id) => {
-        await fetch(`http://localhost:5000/inventory/${id}`, {
+        await fetch(`https://server-11-1eu8n6xit-mdtohid.vercel.app/inventory/${id}`, {
             method: "DELETE"
         })
             .then((result) => {
                 console.log(result);
-                fetch('http://localhost:5000/manageInventory')
+                fetch('https://server-11-1eu8n6xit-mdtohid.vercel.app/manageInventory')
                     .then(res => res.json())
                     .then(data => setProducts(data))
             })
     }
 
     const handleMyItem = async (id) => {
-        await axios.post(`http://localhost:5000/myItem/${id}`, {
+        await axios.post(`https://server-11-1eu8n6xit-mdtohid.vercel.app/myItem/${id}`, {
             headers: {
                 'Content-Type': 'application/json'
             }

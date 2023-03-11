@@ -10,7 +10,7 @@ const ItemInfo = () => {
     const [stockQuantity, setStockQuantity] = useState(0);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/inventory/${id}`)
+        fetch(`https://server-11-1eu8n6xit-mdtohid.vercel.app/inventory/${id}`)
             .then(res => res.json())
             .then(data => {
                 setProduct(data);
@@ -30,7 +30,7 @@ const ItemInfo = () => {
         setQuantity(parseInt(newQuantity));
         // console.log(newQuantity);
         // console.log(quantity);
-        await fetch(`http://localhost:5000/inventory/${id}`, {
+        await fetch(`https://server-11-1eu8n6xit-mdtohid.vercel.app/inventory/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -63,7 +63,7 @@ const ItemInfo = () => {
             newQuantity = 0;
         }
 
-        await fetch(`http://localhost:5000/inventory/${id}`, {
+        await fetch(`https://server-11-1eu8n6xit-mdtohid.vercel.app/inventory/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

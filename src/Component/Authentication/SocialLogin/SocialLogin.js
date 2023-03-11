@@ -2,14 +2,19 @@ import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router';
 import auth from '../../../firebase.init';
+import useJwtToken from '../../../hooks/useJwtToken';
 import google from '../../../img/google.png';
 
 const SocialLogin = () => {
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-    console.log(error)
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
+
+    const userEmail = user?.user?.email;
+    const {token} = useJwtToken(userEmail);
+    // console.log(token);
+
     if(user){
         navigate(from, {replace:true})
     }

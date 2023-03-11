@@ -5,7 +5,7 @@ import Product from '../Product/Product';
 const Inventory = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/inventory')
+        fetch('https://server-11-1eu8n6xit-mdtohid.vercel.app/inventory')
             .then(res => res.json())
             .then(data => {
                 setProducts(data);
@@ -13,7 +13,7 @@ const Inventory = () => {
     }, [])
 
     return (
-        <div className='m-5'>
+        <div className='m-5' id='inventory'>
             <h1 className='text-info text-center mt-5'>Inventories</h1>
             <div className="row row-cols-1 row-cols-md-3 g-5 mb-5">
                 {

@@ -90,6 +90,60 @@
             "photoUrl":"https://i.ibb.co/nfRQ3Jn/nadeykina-evgeniya-epe-Lq-DQh2-PE-unsplash.jpg"
         },
         {
+            "id": 10,
+            "name": "Lychee",
+            "supplierName":"Tohid",
+            "price": 5,
+            "quantity": 5,
+            "description": "The fruit is widely appreciated for its characteristic aroma, bright black color, juicy texture, and sweetness.",
+            "photoUrl":"https://i.ibb.co/4tv8m03/pexels-quang-nguyen-vinh-2161935.jpg"
+        },
+        {
+            "id": 10,
+            "name": "Watermelon",
+            "supplierName":"Tohid",
+            "price": 5,
+            "quantity": 5,
+            "description": "The fruit is widely appreciated for its characteristic aroma, bright black color, juicy texture, and sweetness.",
+            "photoUrl":"https://i.ibb.co/KDH44WF/pexels-scott-webb-1029594.jpg"
+        },
+        {
+            "id": 10,
+            "name": "Apple",
+            "supplierName":"Tohid",
+            "price": 5,
+            "quantity": 5,
+            "description": "The fruit is widely appreciated for its characteristic aroma, bright black color, juicy texture, and sweetness.",
+            "photoUrl":"https://i.ibb.co/Cs8p7Ch/pexels-timothy-grindall-4058849.jpg"
+        },
+        {
+            "id": 10,
+            "name": "Strawberry",
+            "supplierName":"Tohid",
+            "price": 5,
+            "quantity": 5,
+            "description": "The fruit is widely appreciated for its characteristic aroma, bright black color, juicy texture, and sweetness.",
+            "photoUrl":"https://i.ibb.co/f8C01NM/pexels-ave-calvar-martinez-6944172.jpg"
+        },
+        {
+            "id": 10,
+            "name": "Papaya",
+            "supplierName":"Tohid",
+            "price": 5,
+            "quantity": 5,
+            "description": "The fruit is widely appreciated for its characteristic aroma, bright black color, juicy texture, and sweetness.",
+            "photoUrl":"https://i.ibb.co/x72fGtX/pexels-alleksana-4113812.jpg"
+        },
+        {
+            "id": 10,
+            "name": "Banana",
+            "supplierName":"Tohid",
+            "price": 5,
+            "quantity": 5,
+            "description": "The fruit is widely appreciated for its characteristic aroma, bright black color, juicy texture, and sweetness.",
+            "photoUrl":"https://i.ibb.co/BPgdY4F/pexels-aleksandar-pasaric-2875814.jpg"
+        },
+        {
             "id": 11,
             "name": "Mango",
             "supplierName":"Tohid",

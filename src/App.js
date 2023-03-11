@@ -15,6 +15,7 @@ import Error404 from './Component/Error404/Error404';
 import Registration from './Component/Authentication/Registration/Registration';
 import MyItem from './Component/MyItem/MyItem';
 import RequireAuth from './Component/RequireAuth/RequireAuth';
+import { ToastContainer } from 'react-toastify';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
+        <Route path='/home' element={<Home></Home>}></Route>
         <Route path='/banner' element={<Banner></Banner>}></Route>
         <Route path='/inventory' element={<Inventory></Inventory>}></Route>
         <Route path='/inventory/:id' element={<ItemInfo></ItemInfo>}></Route>
@@ -37,6 +39,7 @@ function App() {
         <Route path='/*' element={<Error404></Error404>}></Route>
       </Routes>
       <Footer></Footer> 
+      <ToastContainer></ToastContainer>
     </div>
   );
 }

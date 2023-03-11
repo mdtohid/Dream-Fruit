@@ -1,36 +1,50 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router';
 import auth from '../../../firebase.init';
+import useJwtToken from '../../../hooks/useJwtToken';
 
 const Registration = () => {
+    const [user, setUser] = useState([]);
     const [errorMsg, setError] = useState('');
     const [successMsg, setSuccess] = useState('');
-    const { register, handleSubmit, watch, formState: { errors }, reset} = useForm();
-    
+    const { register, handleSubmit, watch, formState: { errors }, reset } = useForm();
+    const navigate = useNavigate();
+
+    const userEmail = user?.email;
+    const [token] = useJwtToken(userEmail);
+    if(token){
+        reset();
+        navigate('/');
+    }
+
+
     const onSubmit = data => {
         const email = data.email;
         const password = data.password;
+
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Signed in 
-                const user = userCredential.user;
-                console.log(user);
-                // ...
-                reset();
+                    const user = userCredential.user;
+                    setUser(user);
+                    
+                    
             })
 
             .catch((error) => {
                 // console.log(error.Code);
                 // console.log(error.message);
-                if(error.message == 'Firebase: Error (auth/email-already-in-use).'){
+                if (error.message == 'Firebase: Error (auth/email-already-in-use).') {
                     setError('Email already in use')
                 }
-                else{
+                else {
                     setError(error.message);
                 }
             });
     }
+
+
 
     return (
         <div className='w-100'>
@@ -45,7 +59,7 @@ const Registration = () => {
                 <label>Password</label><br />
                 <input className='w-100 mt-1 p-2 form-control' type="password" {...register("password", { required: true })} required /> <br />
 
-                <p className='text-danger'>{errorMsg? errorMsg : ''}</p>
+                <p className='text-danger'>{errorMsg ? errorMsg : ''}</p>
 
                 <div className='w-100 text-center'><input className='btn btn-info w-50' type="submit" /></div>
             </form>
