@@ -3,6 +3,7 @@ import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import logo from '../../img/logoTitle.png';
 
 const Header = () => {
     const [user, loading, error] = useAuthState(auth);
@@ -17,7 +18,9 @@ const Header = () => {
     return (
         <Navbar sticky='top' collapseOnSelect expand="lg" bg="dark" variant="dark">
             <Container>
-                <Navbar.Brand as={Link} to="/">Dream Fruit</Navbar.Brand>
+                <Navbar.Brand as={Link} to="/">
+                    <img src={logo} className='me-2' alt="" srcset="" />
+                    Dream Fruit</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="me-auto">

@@ -30,10 +30,10 @@ const Login = () => {
     }
 
     const userEmail = user?.user?.email;
-    const {token} = useJwtToken(userEmail);
+    const { token } = useJwtToken(userEmail);
     // console.log(token);
 
-    
+
 
     if (loading) {
         <Loading></Loading>
@@ -70,6 +70,23 @@ const Login = () => {
                 <p className='mt-3 text-decoration-none'>Are you new? <Link className='text-decoration-none' to='/registration'>Please Registration</Link> </p>
 
                 <SocialLogin></SocialLogin>
+
+                <div className='mt-5'>
+                    <p>
+                        <button className="btn btn-info " type="button" data-bs-toggle="collapse" data-bs-target="#collapseWidthExample" aria-expanded="false" aria-controls="collapseWidthExample">
+                            Get User Email and Password
+                        </button>
+                    </p>
+                    <div style={{ minHeight: '120px' }}>
+                        <div class="collapse collapse-horizontal" id="collapseWidthExample">
+                            <div class="card card-body" style={{ width: '280px' }}>
+                                <h5>Email and Password:</h5>
+                                <p className='fw-semibold mt-2'>user@mail.com</p>
+                                <p className='fw-semibold'>123456</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </form>
 
 
