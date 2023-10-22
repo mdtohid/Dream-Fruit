@@ -16,12 +16,20 @@ import Registration from './Component/Authentication/Registration/Registration';
 import MyItem from './Component/MyItem/MyItem';
 import RequireAuth from './Component/RequireAuth/RequireAuth';
 import { ToastContainer } from 'react-toastify';
+import { useState } from 'react';
+import { Button, Modal } from 'react-bootstrap';
+import SearchModal from './Component/SearchModal/SearchModal';
 
 
 function App() {
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
   return (
     <div className="">
-      <Header></Header>
+      <Header handleShow={handleShow}></Header>
       <Routes>
         <Route path='/' element={<Home></Home>}></Route>
         <Route path='/home' element={<Home></Home>}></Route>
@@ -38,7 +46,8 @@ function App() {
         <Route path='/registration' element={<Registration></Registration>}></Route>
         <Route path='/*' element={<Error404></Error404>}></Route>
       </Routes>
-      <Footer></Footer> 
+      <Footer></Footer>
+      <SearchModal show={show} handleClose={handleClose}></SearchModal>
       <ToastContainer></ToastContainer>
     </div>
   );

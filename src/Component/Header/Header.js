@@ -1,16 +1,17 @@
 import React from 'react';
-import { Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import './Header.css';
+import { Button, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import logo from '../../img/logoTitle.png';
 
-const Header = () => {
+const Header = ({ handleShow }) => {
     const [user, loading, error] = useAuthState(auth);
     const [signOut, loading1, error1] = useSignOut(auth);
 
     const navigate = useNavigate();
-    const logout=async()=>{
+    const logout = async () => {
         await signOut();
         navigate('/login');
     }
@@ -26,7 +27,13 @@ const Header = () => {
                     <Nav className="me-auto">
                         <Nav.Link as={Link} to="/home">Home</Nav.Link>
                     </Nav>
-                    
+
+                    <Nav.Link>
+                        <div className='' onClick={handleShow}>
+                            <input className='searchInput' placeholder='Search' type="text" />
+                        </div>
+                    </Nav.Link>
+
                     <Nav>
                         <Nav.Link as={Link} to="/inventory:/id">Manage Item</Nav.Link>
                     </Nav>
