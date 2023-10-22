@@ -30,7 +30,7 @@ const Header = ({ handleShow }) => {
 
                     <Nav.Link>
                         <div className='' onClick={handleShow}>
-                            <input className='searchInput' placeholder='Search' type="text" />
+                            <input className='searchInput' placeholder='Search' value='Search' type="text" />
                         </div>
                     </Nav.Link>
 
